@@ -33,20 +33,20 @@ Single Page Application**, ומשלבת **Docking Framework של Radzen** לצו
 ![Alt Text](wwwroot/images/1.png)
 ```
 ``` markdown
-![Alt Text](wwwroot/images/2.png)
+![Alt Text](./wwwroot/images/2.png)
 ```
 ``` markdown
-![Alt Text](wwwroot/images/3.png)
+![Alt Text](./wwwroot/images/3.png)
 ```
 ``` markdown
-![Alt Text](wwwroot/images/4.png)
+![Alt Text](./wwwroot/images/4.png)
 ```
 ``` markdown
-![Alt Text](wwwroot/images/5.png)
+![Alt Text](./wwwroot/images/5.png)
 ```
 ``` markdown
-![Alt Text](wwwroot/images/6.png)
+![Alt Text](./wwwroot/images/6.png)
 ```
 ``` markdown
-![Alt Text](wwwroot/images/7.png)
+![Alt Text](./wwwroot/images/7.png)
 ```
