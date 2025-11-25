@@ -1,0 +1,74 @@
+﻿
+<div style="height: 100%; overflow: auto;">
+
+    <RadzenTemplateForm TItem="FormModel" Data="@model" Submit="@HandleSubmit">
+        <div style="margin-bottom: 10px;">
+            <RadzenLabel Text="שם מלא" />
+            <RadzenTextBox @bind-Value="@model.FullName" Style="width: 100%;" />
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <RadzenLabel Text="אימייל" />
+            <RadzenTextBox @bind-Value="@model.Email" Style="width: 100%;" />
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <RadzenLabel Text="טלפון" />
+            <RadzenTextBox @bind-Value="@model.Phone" Style="width: 100%;" />
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <RadzenLabel Text="תאריך לידה" />
+            <RadzenDatePicker @bind-Value="@model.BirthDate" Style="width: 100%;" />
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <RadzenLabel Text="מין" />
+            <RadzenDropDown @bind-Value="@model.Gender" Data="@genders" Style="width: 100%;" />
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <RadzenLabel Text="הערות" />
+            <RadzenTextArea @bind-Value="@model.Notes" Style="width: 100%; height: 100px;" />
+        </div>
+
+        <RadzenButton ButtonType="ButtonType.Submit" Text="שלח" ButtonStyle="ButtonStyle.Primary" />
+        <RadzenButton ButtonType="ButtonType.Button" Text="איפוס" ButtonStyle="ButtonStyle.Light" Click="@Reset" Style="margin-right: 10px;" />
+    </RadzenTemplateForm>
+
+    @if (submitted)
+    {
+        <div style="margin-top: 10px; padding: 10px; background: #4caf50; color: white; border-radius: 4px;">
+            <strong>הטופס נשלח בהצלחה!</strong>
+            <p>שם: @model.FullName</p>
+            <p>אימייל: @model.Email</p>
+        </div>
+    }
+</div>
+
+@code {
+    private FormModel model = new FormModel();
+    private bool submitted = false;
+    private List<string> genders = new List<string> { "זכר", "נקבה" };
+
+    private void HandleSubmit(FormModel formModel)
+    {
+        submitted = true;
+    }
+
+    private void Reset()
+    {
+        model = new FormModel();
+        submitted = false;
+    }
+
+    public class FormModel
+    {
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Phone { get; set; } = string.Empty;
+        public DateTime? BirthDate { get; set; }
+        public string Gender { get; set; } = string.Empty;
+        public string Notes { get; set; } = string.Empty;
+    }
+}

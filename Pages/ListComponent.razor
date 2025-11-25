@@ -1,0 +1,39 @@
+﻿<div style="height: 100%; display: flex; flex-direction: column;">
+
+    <RadzenDataGrid AllowFiltering="true"
+                    AllowColumnResize="true"
+                    AllowSorting="true"
+                    Data="@items"
+                    TItem="DataItem"
+                    Style="height: 100%;">
+        <Columns>
+            <RadzenDataGridColumn TItem="DataItem" Property="Id" Title="מזהה" Width="100px" />
+            <RadzenDataGridColumn TItem="DataItem" Property="Name" Title="שם" />
+            <RadzenDataGridColumn TItem="DataItem" Property="Description" Title="תיאור" />
+            <RadzenDataGridColumn TItem="DataItem" Property="Date" Title="תאריך" FormatString="{0:dd/MM/yyyy}" />
+            <RadzenDataGridColumn TItem="DataItem" Property="Status" Title="סטטוס" />
+        </Columns>
+    </RadzenDataGrid>
+</div>
+
+@code {
+    private List<DataItem> items = new List<DataItem>
+    {
+        new DataItem { Id = 1, Name = "פריט 1", Description = "פריט ראשון", Date = DateTime.Now.AddDays(-5), Status = "פעיל" },
+        new DataItem { Id = 2, Name = "פריט 2", Description = "פריט שני", Date = DateTime.Now.AddDays(-3), Status = "ממתין" },
+        new DataItem { Id = 3, Name = "פריט 3", Description = "פריט שלישי", Date = DateTime.Now.AddDays(-1), Status = "פעיל" },
+        new DataItem { Id = 4, Name = "פריט 4", Description = "פריט רביעי", Date = DateTime.Now, Status = "הושלם" },
+        new DataItem { Id = 5, Name = "פריט 5", Description = "פריט חמישי", Date = DateTime.Now.AddDays(2), Status = "פעיל" },
+        new DataItem { Id = 6, Name = "פריט 6", Description = "פריט שישי", Date = DateTime.Now.AddDays(4), Status = "ממתין" },
+        new DataItem { Id = 7, Name = "פריט 7", Description = "פריט שביעי", Date = DateTime.Now.AddDays(6), Status = "פעיל" },
+    };
+
+    public class DataItem
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public DateTime Date { get; set; }
+        public string? Status { get; set; }
+    }
+}

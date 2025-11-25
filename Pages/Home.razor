@@ -1,0 +1,109 @@
+﻿@page "/"
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
+@inject DialogService DialogService
+@implements IAsyncDisposable
+
+<PageTitle>Docking Framework - Blazor</PageTitle>
+
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+    <div style="padding: 15px; background: #ed9f074f; color: white; flex-shrink: 0;">
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button @onclick='() => AddDockPanel("list", "רשימה")' class="btn btn-info">
+                הוסף רשימה
+            </button>
+            <button @onclick='() => AddDockPanel("form", "טופס")' class="btn btn-info">
+                הוסף טופס
+            </button>
+            <button @onclick='() => OpenPopup("list")' class="btn btn-outline-dark">
+                רשימה popup
+            </button>
+            <button @onclick='() => OpenPopup("form")' class="btn btn-outline-dark">
+                טופס popup
+            </button>
+        </div>
+    </div>
+
+    <div id="dockContainer" style="flex: 1; position: relative;"></div>
+</div>
+
+@code {
+    private DotNetObjectReference<Home>? dotNetRef;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            try
+            {
+                dotNetRef = DotNetObjectReference.Create(this);
+                await Task.Delay(100);
+                await JS.InvokeVoidAsync("dockingManager.init", dotNetRef, "dockContainer");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error initializing docking: {ex.Message}");
+            }
+        }
+    }
+
+    private async Task AddDockPanel(string type, string title)
+    {
+        try
+        {
+            await JS.InvokeVoidAsync("dockingManager.addPanel", type, title);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error adding panel: {ex.Message}");
+        }
+    }
+
+    private async Task OpenPopup(string componentType)
+    {
+        try
+        {
+            if (componentType == "list")
+            {
+                await DialogService.OpenAsync<ListComponent>("רשימה UP",
+                    null,
+                    new DialogOptions()
+                    {
+                        Width = "800px",
+                        Height = "600px",
+                        Resizable = true,
+                        Draggable = true
+                    });
+            }
+            else
+            {
+                await DialogService.OpenAsync<MyFormComponent>("טופס UP",
+                    null,
+                    new DialogOptions()
+                    {
+                        Width = "700px",
+                        Height = "550px",
+                        Resizable = true,
+                        Draggable = true
+                    });
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error opening popup: {ex.Message}");
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        try
+        {
+            if (dotNetRef != null)
+            {
+                await JS.InvokeVoidAsync("dockingManager.destroy");
+                dotNetRef.Dispose();
+            }
+        }
+        catch { }
+    }
+}
