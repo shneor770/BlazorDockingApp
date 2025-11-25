@@ -1,15 +1,15 @@
-# Blazor WebAssembly - Docking Framework Radzen
+ο»Ώ# Blazor WebAssembly - Docking Framework Radzen
 
-## ϊιΰεψ δτψειχθ
+## ΧªΧ™ΧΧ•Χ¨ Χ”Χ¤Χ¨Χ•Χ™Χ§Χ
 
-τψειχθ ζδ δεΰ ΰτμιχφιιϊ **Blazor WebAssembly** δαπειδ λραιαϊ **SPA --
-Single Page Application**, εξωμαϊ **Docking Framework ωμ Radzen** μφεψκ
-τϊιηϊ ημεπεϊ ξψεαιν, θΰαιν, ςιβεο, ωιπει βεγμ εδφβϊ χεξτεππθεϊ αφεψδ
-βξιωδ εγιπξιϊ.
+Χ¤Χ¨Χ•Χ™Χ§Χ Χ–Χ” Χ”Χ•Χ ΧΧ¤ΧΧ™Χ§Χ¦Χ™Χ™Χª **Blazor WebAssembly** Χ”Χ‘Χ Χ•Χ™Χ” Χ›Χ΅Χ‘Χ™Χ‘Χª **SPA --
+Single Page Application**, Χ•ΧΧ©ΧΧ‘Χª **Docking Framework Χ©Χ Radzen** ΧΧ¦Χ•Χ¨Χ
+Χ¤ΧªΧ™Χ—Χª Χ—ΧΧ•Χ Χ•Χª ΧΧ¨Χ•Χ‘Χ™Χ, ΧΧΧ‘Χ™Χ, ΧΆΧ™Χ’Χ•Χ, Χ©Χ™Χ Χ•Χ™ Χ’Χ•Χ“Χ Χ•Χ”Χ¦Χ’Χª Χ§Χ•ΧΧ¤Χ•Χ Χ ΧΧ•Χª Χ‘Χ¦Χ•Χ¨Χ”
+Χ’ΧΧ™Χ©Χ” Χ•Χ“Χ™Χ ΧΧ™Χª.
 
 ------------------------------------------------------------------------
 
-## ξαπδ δΰτμιχφιδ
+## ΧΧ‘Χ Χ” Χ”ΧΧ¤ΧΧ™Χ§Χ¦Χ™Χ”
 
     /wwwroot
         /css
@@ -27,26 +27,26 @@ Single Page Application**, εξωμαϊ **Docking Framework ωμ Radzen** μφεψκ
     Program.cs
 
 
-## ϊιςεγ ειζεΰμι
+## ΧªΧ™ΧΆΧ•Χ“ Χ•Χ™Χ–Χ•ΧΧΧ™
 
 ``` markdown
-![Alt Text](./wwwroot/images/1.png)
+![Alt Text](wwwroot/images/1.png)
 ```
 ``` markdown
-![Alt Text](./wwwroot/images/2.png)
+![Alt Text](wwwroot/images/2.png)
 ```
 ``` markdown
-![Alt Text](./wwwroot/images/3.png)
+![Alt Text](wwwroot/images/3.png)
 ```
 ``` markdown
-![Alt Text](./wwwroot/images/4.png)
+![Alt Text](wwwroot/images/4.png)
 ```
 ``` markdown
-![Alt Text](./wwwroot/images/5.png)
+![Alt Text](wwwroot/images/5.png)
 ```
 ``` markdown
-![Alt Text](./wwwroot/images/6.png)
+![Alt Text](wwwroot/images/6.png)
 ```
 ``` markdown
-![Alt Text](./wwwroot/images/7.png)
+![Alt Text](wwwroot/images/7.png)
 ```
