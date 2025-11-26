@@ -33,7 +33,7 @@
         this.container.appendChild(workspace);
 
         // Create initial home panel
-        this.createPanel('home', 'טאב הבית', this.getHomeContent(), false);
+        this.createPanel('home', 'טאב הבית', this.getHomeContent(), true);
     },
 
     updateTabBar: function () {
@@ -51,6 +51,7 @@
         this.panels.forEach(panel => {
             const tab = document.createElement('div');
             tab.className = 'tab-item';
+            tab.classList.add(`tab-${panel.type}`);
 
             if (panel.id === this.activeTabId) {
                 tab.classList.add('active');
